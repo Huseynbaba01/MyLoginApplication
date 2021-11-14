@@ -170,6 +170,7 @@ namespace MyLogInApplication
             this.Controls.Add(this.panel_top);
             this.Name = "UserLogin";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.UserLogin_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.ResumeLayout(false);

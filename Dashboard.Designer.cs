@@ -61,8 +61,9 @@ namespace MyLogInApplication
             this.btn_save.TabIndex = 2;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // Form1
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,8 +71,8 @@ namespace MyLogInApplication
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.txt_input);
             this.Controls.Add(this.lbl_greeting);
-            this.Name = "Form1";
-            this.Text = "Dashboard";
+            this.Name = "Dashboard";
+            this.Text = "Dahboard";
             this.ResumeLayout(false);
             this.PerformLayout();
 

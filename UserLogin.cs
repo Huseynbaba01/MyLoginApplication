@@ -35,19 +35,20 @@ namespace MyLogInApplication
             bool hasNoUser = true; ;
             while((s = sr.ReadLine()) != null)
             {
-                if(s.Split(':')[0].Trim() == username && s.Split(':')[1].Trim() == password)
+                if(s.Split(':')[1].Trim() == username && s.Split(':')[2].Trim() == password)
                 {
                     lbl_message.Text = "Username and password are correct!";
                     lbl_message.Visible = true;
                     lbl_message.ForeColor = Color.Green;
                     hasNoUser = false;
+                    (new Dashboard(this, 0)).Show();
                     break;
                 }
             }
 
             if (hasNoUser)
             {
-                lbl_message.Text = "Could't find an account with such credentials!";
+                lbl_message.Text = "Username or password is incorrect!";
                 lbl_message.Visible = true;
                 lbl_message.ForeColor = Color.Red;
                 MessageBox.Show("Could't find an account with such credentials!");
@@ -96,5 +97,15 @@ namespace MyLogInApplication
             Hide();
         }
 
+        private void UserLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            lbl_message.Visible = false;
+        }
     }
 }

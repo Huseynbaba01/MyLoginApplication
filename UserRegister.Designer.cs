@@ -31,7 +31,7 @@ namespace MyLogInApplication
         {
             this.panel_top = new System.Windows.Forms.Panel();
             this.lbl_login = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_message = new System.Windows.Forms.Label();
             this.lbl_register = new System.Windows.Forms.Label();
             this.lbl_login_hint = new System.Windows.Forms.Label();
             this.btn_signup = new System.Windows.Forms.Button();
@@ -40,6 +40,11 @@ namespace MyLogInApplication
             this.lbl_password = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
             this.txt_password_again = new System.Windows.Forms.TextBox();
+            this.txt_fullname = new System.Windows.Forms.TextBox();
+            this.lbl_fullname = new System.Windows.Forms.Label();
+            this.txt_email = new System.Windows.Forms.TextBox();
+            this.lbl_email = new System.Windows.Forms.Label();
+            this.lbl_confirm = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,17 +68,17 @@ namespace MyLogInApplication
             this.lbl_login.TabIndex = 0;
             this.lbl_login.Text = "WELCOME!";
             // 
-            // label1
+            // lbl_message
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(164, 401);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 15);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "                            message                         ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_message.AutoSize = true;
+            this.lbl_message.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_message.ForeColor = System.Drawing.Color.Red;
+            this.lbl_message.Location = new System.Drawing.Point(168, 493);
+            this.lbl_message.Name = "lbl_message";
+            this.lbl_message.Size = new System.Drawing.Size(212, 15);
+            this.lbl_message.TabIndex = 17;
+            this.lbl_message.Text = "                            message                         ";
+            this.lbl_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_register
             // 
@@ -81,7 +86,7 @@ namespace MyLogInApplication
             this.lbl_register.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_register.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_register.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lbl_register.Location = new System.Drawing.Point(326, 356);
+            this.lbl_register.Location = new System.Drawing.Point(330, 448);
             this.lbl_register.Name = "lbl_register";
             this.lbl_register.Size = new System.Drawing.Size(79, 20);
             this.lbl_register.TabIndex = 16;
@@ -92,7 +97,7 @@ namespace MyLogInApplication
             // 
             this.lbl_login_hint.AutoSize = true;
             this.lbl_login_hint.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_login_hint.Location = new System.Drawing.Point(133, 356);
+            this.lbl_login_hint.Location = new System.Drawing.Point(137, 448);
             this.lbl_login_hint.Name = "lbl_login_hint";
             this.lbl_login_hint.Size = new System.Drawing.Size(178, 20);
             this.lbl_login_hint.TabIndex = 15;
@@ -103,17 +108,18 @@ namespace MyLogInApplication
             this.btn_signup.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_signup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_signup.Location = new System.Drawing.Point(141, 290);
+            this.btn_signup.Location = new System.Drawing.Point(145, 398);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(276, 32);
             this.btn_signup.TabIndex = 14;
             this.btn_signup.Text = "Sign up";
             this.btn_signup.UseVisualStyleBackColor = false;
+            this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
             // txt_password
             // 
             this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txt_password.Location = new System.Drawing.Point(237, 197);
+            this.txt_password.Location = new System.Drawing.Point(241, 305);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '•';
             this.txt_password.Size = new System.Drawing.Size(180, 26);
@@ -122,7 +128,7 @@ namespace MyLogInApplication
             // txt_username
             // 
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txt_username.Location = new System.Drawing.Point(237, 151);
+            this.txt_username.Location = new System.Drawing.Point(241, 210);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(180, 26);
             this.txt_username.TabIndex = 12;
@@ -131,17 +137,18 @@ namespace MyLogInApplication
             // 
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_password.Location = new System.Drawing.Point(137, 203);
+            this.lbl_password.Location = new System.Drawing.Point(141, 308);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(78, 20);
             this.lbl_password.TabIndex = 11;
             this.lbl_password.Text = "Password :";
+            this.lbl_password.Click += new System.EventHandler(this.lbl_password_Click);
             // 
             // lbl_username
             // 
             this.lbl_username.AutoSize = true;
             this.lbl_username.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_username.Location = new System.Drawing.Point(133, 154);
+            this.lbl_username.Location = new System.Drawing.Point(137, 213);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(82, 20);
             this.lbl_username.TabIndex = 10;
@@ -150,20 +157,71 @@ namespace MyLogInApplication
             // txt_password_again
             // 
             this.txt_password_again.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txt_password_again.Location = new System.Drawing.Point(237, 244);
+            this.txt_password_again.Location = new System.Drawing.Point(241, 350);
             this.txt_password_again.Name = "txt_password_again";
             this.txt_password_again.PasswordChar = '•';
             this.txt_password_again.Size = new System.Drawing.Size(180, 26);
             this.txt_password_again.TabIndex = 18;
             // 
+            // txt_fullname
+            // 
+            this.txt_fullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txt_fullname.Location = new System.Drawing.Point(241, 166);
+            this.txt_fullname.Name = "txt_fullname";
+            this.txt_fullname.Size = new System.Drawing.Size(180, 26);
+            this.txt_fullname.TabIndex = 20;
+            // 
+            // lbl_fullname
+            // 
+            this.lbl_fullname.AutoSize = true;
+            this.lbl_fullname.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fullname.Location = new System.Drawing.Point(143, 166);
+            this.lbl_fullname.Name = "lbl_fullname";
+            this.lbl_fullname.Size = new System.Drawing.Size(76, 20);
+            this.lbl_fullname.TabIndex = 19;
+            this.lbl_fullname.Text = "Fullname :";
+            // 
+            // txt_email
+            // 
+            this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txt_email.Location = new System.Drawing.Point(241, 260);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(180, 26);
+            this.txt_email.TabIndex = 22;
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.Location = new System.Drawing.Point(166, 266);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(53, 20);
+            this.lbl_email.TabIndex = 21;
+            this.lbl_email.Text = "Email :";
+            // 
+            // lbl_confirm
+            // 
+            this.lbl_confirm.AutoSize = true;
+            this.lbl_confirm.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_confirm.Location = new System.Drawing.Point(143, 356);
+            this.lbl_confirm.Name = "lbl_confirm";
+            this.lbl_confirm.Size = new System.Drawing.Size(69, 20);
+            this.lbl_confirm.TabIndex = 23;
+            this.lbl_confirm.Text = "Confirm :";
+            // 
             // UserRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 450);
+            this.ClientSize = new System.Drawing.Size(570, 529);
+            this.Controls.Add(this.lbl_confirm);
+            this.Controls.Add(this.txt_email);
+            this.Controls.Add(this.lbl_email);
+            this.Controls.Add(this.txt_fullname);
+            this.Controls.Add(this.lbl_fullname);
             this.Controls.Add(this.txt_password_again);
             this.Controls.Add(this.panel_top);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_message);
             this.Controls.Add(this.lbl_register);
             this.Controls.Add(this.lbl_login_hint);
             this.Controls.Add(this.btn_signup);
@@ -184,7 +242,7 @@ namespace MyLogInApplication
 
         private System.Windows.Forms.Panel panel_top;
         private System.Windows.Forms.Label lbl_login;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_message;
         private System.Windows.Forms.Label lbl_register;
         private System.Windows.Forms.Label lbl_login_hint;
         private System.Windows.Forms.Button btn_signup;
@@ -193,5 +251,10 @@ namespace MyLogInApplication
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.TextBox txt_password_again;
+        private System.Windows.Forms.TextBox txt_fullname;
+        private System.Windows.Forms.Label lbl_fullname;
+        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.Label lbl_email;
+        private System.Windows.Forms.Label lbl_confirm;
     }
 }
