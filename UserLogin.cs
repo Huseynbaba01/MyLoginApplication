@@ -45,6 +45,7 @@ namespace MyLogInApplication
                     break;
                 }
             }
+            sr.Close();
 
             if (hasNoUser)
             {

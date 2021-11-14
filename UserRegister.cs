@@ -18,24 +18,26 @@ namespace MyLogInApplication
         string[] userNameSet = new string [1000];
         string[] passwordSet = new string[1000];
         int numberOfUsers;
+        StreamReader reader;
         public UserRegister(UserLogin previousScreen)
         {
             this.previousScreen = previousScreen;
             InitializeComponent();
 
-            StreamReader sr = new StreamReader("details.txt");
+            reader = new StreamReader("details.txt");
             string nextLine = "";
             int i = 0;
-            while ((nextLine = sr.ReadLine()) != null)
+            while ((nextLine = reader.ReadLine()) != null)
             {
                 string[] next = nextLine.Split(':');
                 idSet[i] = next[0];
                 userNameSet[i] = next[1];
                 passwordSet[i] = next[2];
+
                 i++;
                
             }
-            sr.Close();
+            reader.Close();
             numberOfUsers = i;
 
         }
@@ -94,7 +96,7 @@ namespace MyLogInApplication
                 lbl_message.ForeColor = Color.Green;
                 lbl_message.Text = "You're being registered";
                 int id = numberOfUsers;
-                StreamWriter sr = new StreamWriter("details.txt");
+                StreamWriter sr = new StreamWriter("details.txt", true);
                 sr.WriteLine(id + " : " + txt_username.Text + " : " + txt_password.Text + " : " + txt_fullname.Text + " : " + txt_email.Text);
                 sr.Close();
             }
